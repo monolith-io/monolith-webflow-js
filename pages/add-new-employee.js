@@ -125,21 +125,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script> */}
 
-// BEGIN - Show toast label and nav label on click
-// const toastLabel = document.getElementById('toast-wrapper');
-// const bottomNavMenu = document.getElementById('bottom-nav-menu');
-// const startBtn = document.getElementById('add-employee-start-btn');
-// startBtn.addEventListener('click', function() {
-//   toastLabel.style.display = "flex";
-//   bottomNavMenu.style.display = "flex";
-// });
-//console.log("CURRENT STEP ===> ", currentStep);
-//if (currentStep !== 0 && currentStep !== -1 && currentStep !== 1) {
-//  toastLabel.style.display = "flex";
-//  bottomNavMenu.style.display = "flex";
-//}
-// END - Show toast label and nav label on click
-
 // BEGIN - Script to get employe work location and enable next button
 // Get references to the text field and the cards
 const hiddenWorkLocationInput = document.getElementById('hidden-employee-work-location-input');
@@ -171,7 +156,6 @@ const card4 = document.getElementById('freelancer-agency-employee-type-card');
 
 // Function to update the text field
 function updateEmployeeTypeInput(value) {
-  console.log("Update Employee Type");
   hiddenInput.value = value;
   enableBtn();
 }
