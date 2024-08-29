@@ -126,13 +126,13 @@ document.addEventListener("DOMContentLoaded", function() {
 </script> */}
 
 // BEGIN - Show toast label and nav label on click
-const toastLabel = document.getElementById('toast-wrapper');
-const bottomNavMenu = document.getElementById('bottom-nav-menu');
-const startBtn = document.getElementById('add-employee-start-btn');
-startBtn.addEventListener('click', function() {
-  toastLabel.style.display = "flex";
-  bottomNavMenu.style.display = "flex";
-});
+// const toastLabel = document.getElementById('toast-wrapper');
+// const bottomNavMenu = document.getElementById('bottom-nav-menu');
+// const startBtn = document.getElementById('add-employee-start-btn');
+// startBtn.addEventListener('click', function() {
+//   toastLabel.style.display = "flex";
+//   bottomNavMenu.style.display = "flex";
+// });
 //console.log("CURRENT STEP ===> ", currentStep);
 //if (currentStep !== 0 && currentStep !== -1 && currentStep !== 1) {
 //  toastLabel.style.display = "flex";
