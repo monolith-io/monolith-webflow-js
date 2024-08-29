@@ -169,6 +169,7 @@ const card4 = document.getElementById('freelancer-agency-employee-type-card');
 
 // Function to update the text field
 function updateEmployeeTypeInput(value) {
+  console.log("Update Employee Type");
   hiddenInput.value = value;
   enableBtn();
 }
