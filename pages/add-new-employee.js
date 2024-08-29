@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", function(event){
+
 // BEGIN - Update Step Counter
 
 // Function to update the current step
@@ -276,5 +278,5 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script> */}
 
-
+});
 
