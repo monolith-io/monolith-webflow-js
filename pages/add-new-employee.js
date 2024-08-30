@@ -1,10 +1,12 @@
 // BEGIN - Update Step Counter
-// Initialize a variable to store the current step
-let currentStep = -1;
+let globalCurrentStep = 0;
 // Function to update the current step
 function updateCurrentStep() {
   // Select all progress indicators
   const progressIndicators = document.querySelectorAll('.f-progress-wrapper .f-progress-indicator-default');
+
+  // Initialize a variable to store the current step
+  let currentStep = -1;
 
   // Initialize a variable to track visible indicators
   let visibleCount = 0;
@@ -20,6 +22,8 @@ function updateCurrentStep() {
     }
   });
 
+  globalCurrentStep = currentStep;
+
   // Update the text content of the toast label
   const toastLabelText = document.getElementById('toast-label-text');
   if (toastLabelText) {
@@ -31,7 +35,7 @@ function updateButtonVisibility(currentStep) {
   const nextBtn = document.getElementById('add-employee-nav-next-btn');
   const startBtn = document.getElementById('add-employee-nav-start-btn');
 
-  if (currentStep === 0) {
+  if (globalCurrentStep === 0) {
       nextBtn.style.display = 'none';
       startBtn.style.display = 'flex';
   } else {
@@ -59,6 +63,7 @@ document.addEventListener('click', handleClick);
 
 // Initial update on page load
 updateCurrentStep();
+updateButtonVisibility();
 // END - Update Step Counter
 
 
