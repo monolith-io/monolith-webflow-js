@@ -4,8 +4,10 @@ let globalTotalSteps = 16;
 // Function to update the current step
 function updateCurrentStep() {
   // Select all progress indicators
-  const progressIndicators = document.querySelectorAll('.f-progress-wrapper .f-progress-indicator-default');
-  
+  const progressIndicators = document.querySelectorAll(
+    ".f-progress-wrapper .f-progress-indicator-default"
+  );
+
   if (progressIndicators) {
     globalTotalSteps = progressIndicators.length;
   }
@@ -19,9 +21,9 @@ function updateCurrentStep() {
   // Loop through the progress indicators to find the one with the 'current' class
   progressIndicators.forEach((indicator) => {
     // Check if the indicator is visible
-    if (indicator.style.display !== 'none') {
+    if (indicator.style.display !== "none") {
       visibleCount++;
-      if (indicator.classList.contains('current')) {
+      if (indicator.classList.contains("current")) {
         currentStep = visibleCount;
       }
     }
@@ -30,55 +32,64 @@ function updateCurrentStep() {
   globalCurrentStep = currentStep;
 
   // Update the text content of the toast label
-  const toastLabelText = document.getElementById('toast-label-text');
+  const toastLabelText = document.getElementById("toast-label-text");
   if (toastLabelText) {
-    toastLabelText.textContent = currentStep !== -1 ? currentStep.toString() : '0';
+    toastLabelText.textContent =
+      currentStep !== -1 ? currentStep.toString() : "0";
   }
 }
 
 function updateStartAndNextButtonVisibility() {
-  const nextBtn = document.getElementById('add-employee-nav-next-btn');
-  const startBtn = document.getElementById('add-employee-nav-start-btn');
+  const nextBtn = document.getElementById("add-employee-nav-next-btn");
+  const startBtn = document.getElementById("add-employee-nav-start-btn");
 
   if (globalCurrentStep === -1 || globalCurrentStep === 0) {
-      nextBtn.style.display = 'none';
-      startBtn.style.display = 'flex';
+    nextBtn.style.display = "none";
+    startBtn.style.display = "flex";
   } else {
-      nextBtn.style.display = 'flex';
-      startBtn.style.display = 'none';
+    nextBtn.style.display = "flex";
+    startBtn.style.display = "none";
   }
 }
 
 function updateToastTextVisibility() {
-  const toastBackArrow = document.getElementById('add-new-employee-toast-back-arrow');
-  const toastDot = document.getElementById('add-new-employee-toast-dot');
-  const toastReturnToLocationText = document.getElementById('add-new-employee-toast-return-text');
-  const toastEmployeeCreatedText = document.getElementById('add-new-employee-toast-created-text');
-  const toastStepText = document.getElementById('add-new-employee-toast-step-text');
-  const toastStepNumber = document.getElementById('toast-label-text');
+  const toastBackArrow = document.getElementById(
+    "add-new-employee-toast-back-arrow"
+  );
+  const toastDot = document.getElementById("add-new-employee-toast-dot");
+  const toastReturnToLocationText = document.getElementById(
+    "add-new-employee-toast-return-text"
+  );
+  const toastEmployeeCreatedText = document.getElementById(
+    "add-new-employee-toast-created-text"
+  );
+  const toastStepText = document.getElementById(
+    "add-new-employee-toast-step-text"
+  );
+  const toastStepNumber = document.getElementById("toast-label-text");
 
   if (globalCurrentStep === -1 || globalCurrentStep === 0) {
-    toastBackArrow.style.display = 'flex';
-    toastDot.style.display = 'none';
+    toastBackArrow.style.display = "flex";
+    toastDot.style.display = "none";
     toastReturnToLocationText.innerText = "Return to Dashboard";
-    toastReturnToLocationText.style.display = 'flex';
-    toastEmployeeCreatedText.style.display = 'none';
-    toastStepText.style.display = 'none';
-    toastStepNumber.style.display = 'none';
+    toastReturnToLocationText.style.display = "flex";
+    toastEmployeeCreatedText.style.display = "none";
+    toastStepText.style.display = "none";
+    toastStepNumber.style.display = "none";
   } else if (globalCurrentStep === globalTotalSteps - 1) {
-    toastBackArrow.style.display = 'none';
-    toastDot.style.display = 'flex';
-    toastReturnToLocationText.style.display = 'none';
-    toastEmployeeCreatedText.style.display = 'flex';
-    toastStepText.style.display = 'none';
-    toastStepNumber.style.display = 'none';
+    toastBackArrow.style.display = "none";
+    toastDot.style.display = "flex";
+    toastReturnToLocationText.style.display = "none";
+    toastEmployeeCreatedText.style.display = "flex";
+    toastStepText.style.display = "none";
+    toastStepNumber.style.display = "none";
   } else {
-    toastBackArrow.style.display = 'none';
-    toastDot.style.display = 'flex';
-    toastReturnToLocationText.style.display = 'none';
-    toastEmployeeCreatedText.style.display = 'none';
-    toastStepText.style.display = 'flex';
-    toastStepNumber.style.display = 'flex';
+    toastBackArrow.style.display = "none";
+    toastDot.style.display = "flex";
+    toastReturnToLocationText.style.display = "none";
+    toastEmployeeCreatedText.style.display = "none";
+    toastStepText.style.display = "flex";
+    toastStepNumber.style.display = "flex";
   }
 }
 
@@ -86,10 +97,10 @@ function updateToastTextVisibility() {
 function handleClick(event) {
   // Check if the clicked element is a progress indicator or one of the buttons
   if (
-    event.target.closest('.f-progress-wrapper .f-progress-indicator-default') ||
+    event.target.closest(".f-progress-wrapper .f-progress-indicator-default") ||
     event.target.closest('[data-form="next-btn"]') ||
     event.target.closest('[data-form="back-btn"]') ||
-    event.target.closest('#Signup-Submit-Button')
+    event.target.closest("#Signup-Submit-Button")
   ) {
     updateCurrentStep();
     updateStartAndNextButtonVisibility();
@@ -98,13 +109,13 @@ function handleClick(event) {
 }
 
 // Add event listener to the document for delegation
-document.addEventListener('click', handleClick);
+document.addEventListener("click", handleClick);
 
 // Navigate to dashboard on click if flow is on step 0
-const toastWrapper = document.getElementById('toast-wrapper');
-toastWrapper.addEventListener('click', function() {
+const toastWrapper = document.getElementById("toast-wrapper");
+toastWrapper.addEventListener("click", function () {
   if (globalCurrentStep === -1 || globalCurrentStep === 0) {
-    window.location.href = '/company/primary';
+    window.location.href = "/company/primary";
   }
 });
 
@@ -117,44 +128,43 @@ setTimeout(() => {
 
 // END - Update Step Counter
 
-
 // BEGIN - Add Employee Image
-	const addEmployeeImageInput = document.createElement('input');
-  addEmployeeImageInput.type = 'file';
-  addEmployeeImageInput.accept = '.jpg, .jpeg, .png';
-  addEmployeeImageInput.id = 'addEmployeeImageFile';
-  addEmployeeImageInput.style.display = 'none';
-  document.body.appendChild(addEmployeeImageInput);
+const addEmployeeImageInput = document.createElement("input");
+addEmployeeImageInput.type = "file";
+addEmployeeImageInput.accept = ".jpg, .jpeg, .png";
+addEmployeeImageInput.id = "addEmployeeImageFile";
+addEmployeeImageInput.style.display = "none";
+document.body.appendChild(addEmployeeImageInput);
 // END - Add Employee Image
 
-
 // BEGIN - Update custom projgress indicator
-function updateCustomProgressIndicator(){
-  $('[data-form="custom-progress-indicator"]').each(function(idc){
-    if(x >= idc){
-        $(this).addClass('visited')
+function updateCustomProgressIndicator() {
+  $('[data-form="custom-progress-indicator"]').each(function (idc) {
+    if (x >= idc) {
+      $(this).addClass("visited");
     }
-  })
+  });
 }
-$('[data-form="next-btn"]').on('click', updateCustomProgressIndicator)
-$('[data-form="back-btn"]').on('click', updateCustomProgressIndicator)
+$('[data-form="next-btn"]').on("click", updateCustomProgressIndicator);
+$('[data-form="back-btn"]').on("click", updateCustomProgressIndicator);
 // END - Update custom projgress indicator
 
 // BEGIN - Validation for last 4 ssn
-const inputField = document.getElementById('last-4-of-ssn');
+const inputField = document.getElementById("last-4-of-ssn");
 
-inputField.addEventListener('input', function (event) {
-    // Remove any non-numeric characters
-    inputField.value = inputField.value.replace(/\D/g, '');
+inputField.addEventListener("input", function (event) {
+  // Remove any non-numeric characters
+  inputField.value = inputField.value.replace(/\D/g, "");
 
-    // Limit the input to 4 characters
-    if (inputField.value.length > 4) {
-        inputField.value = inputField.value.slice(0, 4);
-    }
+  // Limit the input to 4 characters
+  if (inputField.value.length > 4) {
+    inputField.value = inputField.value.slice(0, 4);
+  }
 });
 // END - Validation for last 4 ssn
 
-{/* <script>
+{
+  /* <script>
 document.addEventListener("DOMContentLoaded", function() {
   const cards = document.querySelectorAll('.work-link-block-wrapper');
   let selectedCard = null;
@@ -187,15 +197,18 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 });
-</script> */}
+</script> */
+}
 
 // BEGIN - Script to get employe work location and enable next button
 // Get references to the text field and the cards
-const hiddenWorkLocationInput = document.getElementById('hidden-employee-work-location-input');
-const remoteCard = document.getElementById('remote-location-card');
-const hybridCard = document.getElementById('hybrid-location-card');
-const inOfficeCard = document.getElementById('in-office-card');
-const otherCard = document.getElementById('other-card');
+const hiddenWorkLocationInput = document.getElementById(
+  "hidden-employee-work-location-input"
+);
+const remoteCard = document.getElementById("remote-location-card");
+const hybridCard = document.getElementById("hybrid-location-card");
+const inOfficeCard = document.getElementById("in-office-card");
+const otherCard = document.getElementById("other-card");
 
 // Function to update the text field
 function updateWorkLocationInput(value) {
@@ -204,19 +217,21 @@ function updateWorkLocationInput(value) {
 }
 
 // Add click event listeners to each card
-remoteCard.addEventListener('click', () => updateWorkLocationInput('Remote'));
-hybridCard.addEventListener('click', () => updateWorkLocationInput('Hybrid'));
-inOfficeCard.addEventListener('click', () => updateWorkLocationInput('In Office'));
-otherCard.addEventListener('click', () => updateWorkLocationInput('Other'));
+remoteCard.addEventListener("click", () => updateWorkLocationInput("Remote"));
+hybridCard.addEventListener("click", () => updateWorkLocationInput("Hybrid"));
+inOfficeCard.addEventListener("click", () =>
+  updateWorkLocationInput("In Office")
+);
+otherCard.addEventListener("click", () => updateWorkLocationInput("Other"));
 // END - Script to get employe work location and enable next button
 
 // BEGIN - Script to get employe type and enable next button
 // Get references to the text field and the cards
-const hiddenInput = document.getElementById('hidden-employee-type-input');
-const card1 = document.getElementById('w2-employee-type-card');
-const card2 = document.getElementById('1099-contractor-employee-type-card');
-const card3 = document.getElementById('intern-employee-type-card');
-const card4 = document.getElementById('freelancer-agency-employee-type-card');
+const hiddenInput = document.getElementById("hidden-employee-type-input");
+const card1 = document.getElementById("w2-employee-type-card");
+const card2 = document.getElementById("1099-contractor-employee-type-card");
+const card3 = document.getElementById("intern-employee-type-card");
+const card4 = document.getElementById("freelancer-agency-employee-type-card");
 
 // Function to update the text field
 function updateEmployeeTypeInput(value) {
@@ -225,17 +240,23 @@ function updateEmployeeTypeInput(value) {
 }
 
 // Add click event listeners to each card
-card1.addEventListener('click', () => updateEmployeeTypeInput('W-2 Employee'));
-card2.addEventListener('click', () => updateEmployeeTypeInput('1099 Contractor'));
-card3.addEventListener('click', () => updateEmployeeTypeInput('Intern'));
-card4.addEventListener('click', () => updateEmployeeTypeInput('Freelancer/Agency'));
+card1.addEventListener("click", () => updateEmployeeTypeInput("W-2 Employee"));
+card2.addEventListener("click", () =>
+  updateEmployeeTypeInput("1099 Contractor")
+);
+card3.addEventListener("click", () => updateEmployeeTypeInput("Intern"));
+card4.addEventListener("click", () =>
+  updateEmployeeTypeInput("Freelancer/Agency")
+);
 // END - Script to get employe type and enable next button
 
 // BEGIN - Script to get employee work schedule and enable next button
 // Get references to the text field and the cards
-const hiddenEmployeeWorkScheduleInput = document.getElementById('hidden-employee-work-schedule-input');
-const fullTimeCard = document.getElementById('employee-full-time-card');
-const partTimeCard = document.getElementById('employee-part-time-card');
+const hiddenEmployeeWorkScheduleInput = document.getElementById(
+  "hidden-employee-work-schedule-input"
+);
+const fullTimeCard = document.getElementById("employee-full-time-card");
+const partTimeCard = document.getElementById("employee-part-time-card");
 
 // Function to update the text field
 function updateEmployeeWorkScheduleInput(value) {
@@ -244,17 +265,23 @@ function updateEmployeeWorkScheduleInput(value) {
 }
 
 // Add click event listeners to each card
-fullTimeCard.addEventListener('click', () => updateEmployeeWorkScheduleInput('Full-Time'));
-partTimeCard.addEventListener('click', () => updateEmployeeWorkScheduleInput('Part-Time'));
+fullTimeCard.addEventListener("click", () =>
+  updateEmployeeWorkScheduleInput("Full-Time")
+);
+partTimeCard.addEventListener("click", () =>
+  updateEmployeeWorkScheduleInput("Part-Time")
+);
 // END - Script to get employee work schedule and enable next button
 
 // BEGIN - Script to get employee pay structure and enable next button
 // Get references to the text field and the cards
-const hiddenEmployeePayStructureInput = document.getElementById('hidden-employee-pay-structure-input');
-const salaryPayCard = document.getElementById('salary-pay-card');
-const hourlyPayCard = document.getElementById('hourly-pay-card');
-const projectBasedPayCard = document.getElementById('project-based-pay-card');
-const commissionPayCard = document.getElementById('commission-pay-card');
+const hiddenEmployeePayStructureInput = document.getElementById(
+  "hidden-employee-pay-structure-input"
+);
+const salaryPayCard = document.getElementById("salary-pay-card");
+const hourlyPayCard = document.getElementById("hourly-pay-card");
+const projectBasedPayCard = document.getElementById("project-based-pay-card");
+const commissionPayCard = document.getElementById("commission-pay-card");
 
 // Function to update the text field
 function updateEmployeePayStructureInput(value) {
@@ -264,13 +291,21 @@ function updateEmployeePayStructureInput(value) {
 }
 
 // Add click event listeners to each card
-salaryPayCard.addEventListener('click', () => updateEmployeePayStructureInput('Salary'));
-hourlyPayCard.addEventListener('click', () => updateEmployeePayStructureInput('Hourly'));
-projectBasedPayCard.addEventListener('click', () => updateEmployeePayStructureInput('Project-Based'));
-commissionPayCard.addEventListener('click', () => updateEmployeePayStructureInput('Commission'));
+salaryPayCard.addEventListener("click", () =>
+  updateEmployeePayStructureInput("Salary")
+);
+hourlyPayCard.addEventListener("click", () =>
+  updateEmployeePayStructureInput("Hourly")
+);
+projectBasedPayCard.addEventListener("click", () =>
+  updateEmployeePayStructureInput("Project-Based")
+);
+commissionPayCard.addEventListener("click", () =>
+  updateEmployeePayStructureInput("Commission")
+);
 
 function setRateStepVisibility(payFrequency) {
-  switch(payFrequency.toLowerCase()) {
+  switch (payFrequency.toLowerCase()) {
     case "salary":
       $(".s-annual-salary").css("display", "flex");
       $(".s-hourly-rate").css("display", "none");
@@ -303,11 +338,15 @@ function setRateStepVisibility(payFrequency) {
 
 // BEGIN - Script to get employee pay frequency and enable next button
 // Get references to the text field and the cards
-const hiddenEmployeePayFrequencyInput = document.getElementById('hidden-employee-pay-frequency-input');
-const weeklyPayCard = document.getElementById('weekly-pay-card');
-const biWeeklyPayCard = document.getElementById('bi-weekly-pay-card');
-const monthlyPayCard = document.getElementById('monthly-pay-card');
-const projectBasedFrequencyPayCard = document.getElementById('project-based-frequency-pay-card');
+const hiddenEmployeePayFrequencyInput = document.getElementById(
+  "hidden-employee-pay-frequency-input"
+);
+const weeklyPayCard = document.getElementById("weekly-pay-card");
+const biWeeklyPayCard = document.getElementById("bi-weekly-pay-card");
+const monthlyPayCard = document.getElementById("monthly-pay-card");
+const projectBasedFrequencyPayCard = document.getElementById(
+  "project-based-frequency-pay-card"
+);
 
 // Function to update the text field
 function updateEmployeePayFrequencyInput(value) {
@@ -316,14 +355,22 @@ function updateEmployeePayFrequencyInput(value) {
 }
 
 // Add click event listeners to each card
-weeklyPayCard.addEventListener('click', () => updateEmployeePayFrequencyInput('Weekly'));
-biWeeklyPayCard.addEventListener('click', () => updateEmployeePayFrequencyInput('Bi-Weekly'));
-monthlyPayCard.addEventListener('click', () => updateEmployeePayFrequencyInput('Monthly'));
-projectBasedFrequencyPayCard.addEventListener('click', () => updateEmployeePayFrequencyInput('Project-Based'));
+weeklyPayCard.addEventListener("click", () =>
+  updateEmployeePayFrequencyInput("Weekly")
+);
+biWeeklyPayCard.addEventListener("click", () =>
+  updateEmployeePayFrequencyInput("Bi-Weekly")
+);
+monthlyPayCard.addEventListener("click", () =>
+  updateEmployeePayFrequencyInput("Monthly")
+);
+projectBasedFrequencyPayCard.addEventListener("click", () =>
+  updateEmployeePayFrequencyInput("Project-Based")
+);
 // END - Script to get employee pay frequency and enable next button
 
-
-{/* <script>
+{
+  /* <script>
 document.addEventListener("DOMContentLoaded", function() {
   const cards = document.querySelectorAll('.single-multi-select-card');
   let selectedCard = null;
@@ -356,4 +403,5 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 });
-</script> */}
+</script> */
+}
