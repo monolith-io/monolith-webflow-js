@@ -39,8 +39,8 @@ function updateButtonVisibility() {
       nextBtn.style.display = 'none';
       startBtn.style.display = 'flex';
   } else {
-      nextBtn.style.display = 'block';
-      startBtn.style.display = 'flex';
+      nextBtn.style.display = 'flex';
+      startBtn.style.display = 'none';
   }
 }
 
