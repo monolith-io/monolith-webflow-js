@@ -1,9 +1,14 @@
 // BEGIN - Update Step Counter
 let globalCurrentStep = 0;
+let globalTotalSteps = 16;
 // Function to update the current step
 function updateCurrentStep() {
   // Select all progress indicators
   const progressIndicators = document.querySelectorAll('.f-progress-wrapper .f-progress-indicator-default');
+  
+  if (progressIndicators) {
+    globalTotalSteps = progressIndicators.length;
+  }
 
   // Initialize a variable to store the current step
   let currentStep = -1;
@@ -31,7 +36,7 @@ function updateCurrentStep() {
   }
 }
 
-function updateButtonVisibility() {
+function updateStartAndNextButtonVisibility() {
   const nextBtn = document.getElementById('add-employee-nav-next-btn');
   const startBtn = document.getElementById('add-employee-nav-start-btn');
 
@@ -41,6 +46,39 @@ function updateButtonVisibility() {
   } else {
       nextBtn.style.display = 'flex';
       startBtn.style.display = 'none';
+  }
+}
+
+function updateToastTextVisibility() {
+  const toastBackArrow = document.getElementById('add-new-employee-toast-back-arrow');
+  const toastDot = document.getElementById('add-new-employee-toast-dot');
+  const toastReturnToLocationText = document.getElementById('add-new-employee-toast-return-text');
+  const toastEmployeeCreatedText = document.getElementById('add-new-employee-toast-created-text');
+  const toastStepText = document.getElementById('add-new-employee-toast-step-text');
+  const toastStepNumber = document.getElementById('toast-label-text');
+
+  if (globalCurrentStep === -1 || globalCurrentStep === 0) {
+    toastBackArrow.style.display = 'flex';
+    toastDot.style.display = 'none';
+    toastReturnToLocationText.innerText = "Return to Dashboard";
+    toastReturnToLocationText.style.display = 'flex';
+    toastEmployeeCreatedText.style.display = 'none';
+    toastStepText.style.display = 'none';
+    toastStepNumber.style.display = 'none';
+  } else if (globalCurrentStep === globalTotalSteps - 1) {
+    toastBackArrow.style.display = 'none';
+    toastDot.style.display = 'flex';
+    toastReturnToLocationText.style.display = 'none';
+    toastEmployeeCreatedText.style.display = 'flex';
+    toastStepText.style.display = 'none';
+    toastStepNumber.style.display = 'none';
+  } else {
+    toastBackArrow.style.display = 'none';
+    toastDot.style.display = 'flex';
+    toastReturnToLocationText.style.display = 'none';
+    toastEmployeeCreatedText.style.display = 'none';
+    toastStepText.style.display = 'flex';
+    toastStepNumber.style.display = 'flex';
   }
 }
 
@@ -54,7 +92,8 @@ function handleClick(event) {
     event.target.closest('#Signup-Submit-Button')
   ) {
     updateCurrentStep();
-    updateButtonVisibility();
+    updateStartAndNextButtonVisibility();
+    updateToastTextVisibility();
   }
 }
 
@@ -65,6 +104,7 @@ document.addEventListener('click', handleClick);
 setTimeout(() => {
   updateCurrentStep();
   updateButtonVisibility();
+  updateToastTextVisibility();
 }, 100);
 
 // END - Update Step Counter
