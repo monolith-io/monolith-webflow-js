@@ -88,7 +88,7 @@ function updateToastTextVisibility() {
     toastStepText.style.display = "none";
     toastStepNumber.style.display = "none";
     bottomNavMenuButtonsWrapper.style.display = "none";
-    bottomNavReturnToDashboard.style.display = "flex";
+    bottomNavReturnToDashboard.style.display = "block";
   } else {
     toastBackArrow.style.display = "none";
     toastDot.style.display = "flex";
