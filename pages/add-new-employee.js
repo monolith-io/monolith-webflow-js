@@ -103,7 +103,7 @@ document.addEventListener('click', handleClick);
 // Initial update on page load
 setTimeout(() => {
   updateCurrentStep();
-  updateButtonVisibility();
+  updateStartAndNextButtonVisibility();
   updateToastTextVisibility();
 }, 100);
 
