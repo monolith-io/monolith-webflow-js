@@ -1,12 +1,10 @@
 // BEGIN - Update Step Counter
-
+// Initialize a variable to store the current step
+let currentStep = -1;
 // Function to update the current step
 function updateCurrentStep() {
   // Select all progress indicators
   const progressIndicators = document.querySelectorAll('.f-progress-wrapper .f-progress-indicator-default');
-
-  // Initialize a variable to store the current step
-  let currentStep = -1;
 
   // Initialize a variable to track visible indicators
   let visibleCount = 0;
@@ -29,6 +27,19 @@ function updateCurrentStep() {
   }
 }
 
+function updateButtonVisibility(currentStep) {
+  const nextBtn = document.getElementById('add-employee-nav-next-btn');
+  const startBtn = document.getElementById('add-employee-nav-start-btn');
+
+  if (currentStep === 0) {
+      nextBtn.style.display = 'none';
+      startBtn.style.display = 'flex';
+  } else {
+      nextBtn.style.display = 'block';
+      startBtn.style.display = 'flex';
+  }
+}
+
 // Function to handle clicks on progress indicators and buttons
 function handleClick(event) {
   // Check if the clicked element is a progress indicator or one of the buttons
@@ -39,6 +50,7 @@ function handleClick(event) {
     event.target.closest('#Signup-Submit-Button')
   ) {
     updateCurrentStep();
+    updateButtonVisibility();
   }
 }
 
