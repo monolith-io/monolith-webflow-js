@@ -73,18 +73,16 @@ $('[data-form="back-btn"]').on('click', updateCustomProgressIndicator)
 // END - Update custom projgress indicator
 
 // BEGIN - Validation for last 4 ssn
-document.addEventListener('DOMContentLoaded', function () {
-    const inputField = document.getElementById('last-4-of-ssn');
+const inputField = document.getElementById('last-4-of-ssn');
 
-    inputField.addEventListener('input', function (event) {
-        // Remove any non-numeric characters
-        inputField.value = inputField.value.replace(/\D/g, '');
+inputField.addEventListener('input', function (event) {
+    // Remove any non-numeric characters
+    inputField.value = inputField.value.replace(/\D/g, '');
 
-        // Limit the input to 4 characters
-        if (inputField.value.length > 4) {
-            inputField.value = inputField.value.slice(0, 4);
-        }
-    });
+    // Limit the input to 4 characters
+    if (inputField.value.length > 4) {
+        inputField.value = inputField.value.slice(0, 4);
+    }
 });
 // END - Validation for last 4 ssn
 
