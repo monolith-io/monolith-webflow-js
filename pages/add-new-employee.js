@@ -268,30 +268,7 @@ salaryPayCard.addEventListener('click', () => updateEmployeePayStructureInput('S
 hourlyPayCard.addEventListener('click', () => updateEmployeePayStructureInput('Hourly'));
 projectBasedPayCard.addEventListener('click', () => updateEmployeePayStructureInput('Project-Based'));
 commissionPayCard.addEventListener('click', () => updateEmployeePayStructureInput('Commission'));
-// END - Script to get employee pay structure and enable next button
 
-// BEGIN - Script to get employee pay frequency and enable next button
-// Get references to the text field and the cards
-const hiddenEmployeePayFrequencyInput = document.getElementById('hidden-employee-pay-frequency-input');
-const weeklyPayCard = document.getElementById('weekly-pay-card');
-const biWeeklyPayCard = document.getElementById('bi-weekly-pay-card');
-const monthlyPayCard = document.getElementById('monthly-pay-card');
-const projectBasedFrequencyPayCard = document.getElementById('project-based-frequency-pay-card');
-
-// Function to update the text field
-function updateEmployeePayFrequencyInput(value) {
-  hiddenEmployeePayFrequencyInput.value = value;
-  enableBtn();
-}
-
-// Add click event listeners to each card
-weeklyPayCard.addEventListener('click', () => updateEmployeePayFrequencyInput('Weekly'));
-biWeeklyPayCard.addEventListener('click', () => updateEmployeePayFrequencyInput('Bi-Weekly'));
-monthlyPayCard.addEventListener('click', () => updateEmployeePayFrequencyInput('Monthly'));
-projectBasedFrequencyPayCard.addEventListener('click', () => updateEmployeePayFrequencyInput('Project-Based'));
-// END - Script to get employee pay frequency and enable next button
-
-// BEGIN - Set visibility for rate step based on selection
 function setRateStepVisibility(payFrequency) {
   switch(payFrequency.toLowerCase()) {
     case "salary":
@@ -322,15 +299,28 @@ function setRateStepVisibility(payFrequency) {
       return;
   }
 }
+// END - Script to get employee pay structure and enable next button
 
-// const employeePayStructureInput = document.getElementById('hidden-employee-pay-structure-input');
-// let employeePayStructure = "";
-// employeePayStructureInput.addEventListener('input', function(event) {
-//   console.log('Input changed:', event.target.value);
-//   employeePayStructure = event.target.value;
-//   setRateStepVisibility(employeePayStructure);
-// });
-// END - Set visibility for hourly rate step based on selection
+// BEGIN - Script to get employee pay frequency and enable next button
+// Get references to the text field and the cards
+const hiddenEmployeePayFrequencyInput = document.getElementById('hidden-employee-pay-frequency-input');
+const weeklyPayCard = document.getElementById('weekly-pay-card');
+const biWeeklyPayCard = document.getElementById('bi-weekly-pay-card');
+const monthlyPayCard = document.getElementById('monthly-pay-card');
+const projectBasedFrequencyPayCard = document.getElementById('project-based-frequency-pay-card');
+
+// Function to update the text field
+function updateEmployeePayFrequencyInput(value) {
+  hiddenEmployeePayFrequencyInput.value = value;
+  enableBtn();
+}
+
+// Add click event listeners to each card
+weeklyPayCard.addEventListener('click', () => updateEmployeePayFrequencyInput('Weekly'));
+biWeeklyPayCard.addEventListener('click', () => updateEmployeePayFrequencyInput('Bi-Weekly'));
+monthlyPayCard.addEventListener('click', () => updateEmployeePayFrequencyInput('Monthly'));
+projectBasedFrequencyPayCard.addEventListener('click', () => updateEmployeePayFrequencyInput('Project-Based'));
+// END - Script to get employee pay frequency and enable next button
 
 
 {/* <script>
