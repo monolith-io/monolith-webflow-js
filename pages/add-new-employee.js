@@ -35,7 +35,7 @@ function updateButtonVisibility() {
   const nextBtn = document.getElementById('add-employee-nav-next-btn');
   const startBtn = document.getElementById('add-employee-nav-start-btn');
 
-  if (globalCurrentStep === 0) {
+  if (globalCurrentStep === -1 || globalCurrentStep === 0) {
       nextBtn.style.display = 'none';
       startBtn.style.display = 'flex';
   } else {
