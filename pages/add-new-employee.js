@@ -100,6 +100,14 @@ function handleClick(event) {
 // Add event listener to the document for delegation
 document.addEventListener('click', handleClick);
 
+// Navigate to dashboard on click if flow is on step 0
+const toastWrapper = document.getElementById('toast-wrapper');
+toastWrapper.addEventListener('click', function() {
+  if (globalCurrentStep === -1 || globalCurrentStep === 0) {
+    window.location.href = '/company/primary';
+  }
+});
+
 // Initial update on page load
 setTimeout(() => {
   updateCurrentStep();
