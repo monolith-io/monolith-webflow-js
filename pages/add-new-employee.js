@@ -259,6 +259,7 @@ const commissionPayCard = document.getElementById('commission-pay-card');
 // Function to update the text field
 function updateEmployeePayStructureInput(value) {
   hiddenEmployeePayStructureInput.value = value;
+  setRateStepVisibility(value);
   enableBtn();
 }
 
@@ -289,6 +290,47 @@ biWeeklyPayCard.addEventListener('click', () => updateEmployeePayFrequencyInput(
 monthlyPayCard.addEventListener('click', () => updateEmployeePayFrequencyInput('Monthly'));
 projectBasedFrequencyPayCard.addEventListener('click', () => updateEmployeePayFrequencyInput('Project-Based'));
 // END - Script to get employee pay frequency and enable next button
+
+// BEGIN - Set visibility for rate step based on selection
+function setRateStepVisibility(payFrequency) {
+  switch(payFrequency.toLowerCase()) {
+    case "salary":
+      $(".s-annual-salary").css("display", "flex");
+      $(".s-hourly-rate").css("display", "none");
+      $(".s-project-compensation").css("display", "none");
+      $(".s-commission-details").css("display", "none");
+      break;
+    case "hourly":
+      $(".s-annual-salary").css("display", "none");
+      $(".s-hourly-rate").css("display", "flex");
+      $(".s-project-compensation").css("display", "none");
+      $(".s-commission-details").css("display", "none");
+      break;
+    case "commission":
+      $(".s-annual-salary").css("display", "none");
+      $(".s-hourly-rate").css("display", "none");
+      $(".s-project-compensation").css("display", "none");
+      $(".s-commission-details").css("display", "flex");
+      break;
+    case "project-based":
+      $(".s-annual-salary").css("display", "none");
+      $(".s-hourly-rate").css("display", "none");
+      $(".s-project-compensation").css("display", "flex");
+      $(".s-commission-details").css("display", "none");
+      break;
+    default:
+      return;
+  }
+}
+
+// const employeePayStructureInput = document.getElementById('hidden-employee-pay-structure-input');
+// let employeePayStructure = "";
+// employeePayStructureInput.addEventListener('input', function(event) {
+//   console.log('Input changed:', event.target.value);
+//   employeePayStructure = event.target.value;
+//   setRateStepVisibility(employeePayStructure);
+// });
+// END - Set visibility for hourly rate step based on selection
 
 
 {/* <script>
