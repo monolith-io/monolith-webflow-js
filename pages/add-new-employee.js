@@ -69,6 +69,7 @@ function updateToastTextVisibility() {
   const toastStepNumber = document.getElementById("toast-label-text");
   const bottomNavMenuButtonsWrapper = document.getElementById("bottom-nav-menu-buttons-wrapper");
   const bottomNavReturnToDashboard = document.getElementById('bottom-nav-return-to-dashboard');
+  const bottomNavMenu = document.getElementById('bottom-nav-menu');
 
   if (globalCurrentStep === -1 || globalCurrentStep === 0) {
     toastBackArrow.style.display = "flex";
@@ -80,6 +81,7 @@ function updateToastTextVisibility() {
     toastStepNumber.style.display = "none";
     bottomNavMenuButtonsWrapper.style.display = "flex";
     bottomNavReturnToDashboard.style.display = "none";
+    bottomNavMenu.style.display = "flex";
   } else if (globalCurrentStep === globalTotalSteps - 1) {
     toastBackArrow.style.display = "none";
     toastDot.style.display = "flex";
@@ -88,7 +90,8 @@ function updateToastTextVisibility() {
     toastStepText.style.display = "none";
     toastStepNumber.style.display = "none";
     bottomNavMenuButtonsWrapper.style.display = "none";
-    bottomNavReturnToDashboard.style.display = "block";
+    bottomNavReturnToDashboard.style.display = "flex";
+    bottomNavMenu.style.display = "block";
   } else {
     toastBackArrow.style.display = "none";
     toastDot.style.display = "flex";
@@ -98,6 +101,7 @@ function updateToastTextVisibility() {
     toastStepNumber.style.display = "flex";
     bottomNavMenuButtonsWrapper.style.display = "flex";
     bottomNavReturnToDashboard.style.display = "none";
+    bottomNavMenu.style.display = "flex";
   }
 }
 
