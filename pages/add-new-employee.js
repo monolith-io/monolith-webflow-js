@@ -62,8 +62,11 @@ function handleClick(event) {
 document.addEventListener('click', handleClick);
 
 // Initial update on page load
-updateCurrentStep();
-updateButtonVisibility();
+setTimeout(() => {
+  updateCurrentStep();
+  updateButtonVisibility();
+}, 100);
+
 // END - Update Step Counter
 
 
