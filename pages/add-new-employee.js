@@ -31,7 +31,7 @@ function updateCurrentStep() {
   }
 }
 
-function updateButtonVisibility(currentStep) {
+function updateButtonVisibility() {
   const nextBtn = document.getElementById('add-employee-nav-next-btn');
   const startBtn = document.getElementById('add-employee-nav-start-btn');
 
