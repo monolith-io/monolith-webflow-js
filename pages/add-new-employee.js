@@ -229,7 +229,7 @@ function selectWorkLocationCard(card) {
   if (selectedWorkLocationCard) {
     selectedWorkLocationCard.classList.remove('card-selected');
   }
-  selectedWorkLocationCard.classList.add('card-selected');
+  card.classList.add('card-selected');
   selectedWorkLocationCard = card;
 }
 
@@ -283,7 +283,7 @@ function selectEmployeeTypeCard(card) {
   if (selectedEmployeeTypeCard) {
     selectedEmployeeTypeCard.classList.remove('card-selected');
   }
-  selectedEmployeeTypeCard.classList.add('card-selected');
+  card.classList.add('card-selected');
   selectedEmployeeTypeCard = card;
 }
 
@@ -339,7 +339,7 @@ function selectWorkScheduleCard(card) {
   if (selectedWorkScheduleCard) {
     selectedWorkScheduleCard.classList.remove('card-selected');
   }
-  selectedWorkScheduleCard.classList.add('card-selected');
+  card.classList.add('card-selected');
   selectedWorkScheduleCard = card;
 }
 
@@ -395,7 +395,7 @@ function selectEmployeePayStructureCard(card) {
   if (selectedEmployeePayStructureCard) {
     selectedEmployeePayStructureCard.classList.remove('card-selected');
   }
-  selectedEmployeePayStructureCard.classList.add('card-selected');
+  card.classList.add('card-selected');
   selectedEmployeePayStructureCard = card;
 }
 
@@ -491,7 +491,7 @@ function selectEmployeePayFrequencyCard(card) {
   if (selectedEmployeePayFrequencyCard) {
     selectedEmployeePayFrequencyCard.classList.remove('card-selected');
   }
-  selectedEmployeePayFrequencyCard.classList.add('card-selected');
+  card.classList.add('card-selected');
   selectedEmployeePayFrequencyCard = card;
 }
 
