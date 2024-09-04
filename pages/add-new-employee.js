@@ -221,6 +221,37 @@ const remoteCard = document.getElementById("remote-location-card");
 const hybridCard = document.getElementById("hybrid-location-card");
 const inOfficeCard = document.getElementById("in-office-card");
 const otherCard = document.getElementById("other-card");
+const workLocationCards = [remoteCard, hybridCard, inOfficeCard, otherCard];
+
+let selectedWorkLocationCard = null;
+
+function selectWorkLocationCard(card) {
+  if (selectedWorkLocationCard) {
+    selectedWorkLocationCard.classList.remove('card-selected');
+  }
+  selectedWorkLocationCard.classList.add('card-selected');
+  selectedWorkLocationCard = card;
+}
+
+workLocationCards.forEach(card => {
+  card.addEventListener('click', function () {
+    selectWorkLocationCard(card);
+  });
+  card.addEventListener('mouseover', function () {
+    card.classList.add('hover');
+  });
+  card.addEventListener('mouseout', function () {
+    card.classList.remove('hover');
+  });
+});
+
+document.addEventListener('click', function (event) {
+  const isClickInsideWorkLocationCard = Array.from(workLocationCards).some(card => card.contains(event.target));
+  if (!isClickInsideWorkLocationCard && selectedWorkLocationCard) {
+    // Prevents deselection if clicking outside of any card
+    event.stopPropagation();
+  }
+});
 
 // Function to update the text field
 function updateWorkLocationInput(value) {
@@ -244,6 +275,37 @@ const card1 = document.getElementById("w2-employee-type-card");
 const card2 = document.getElementById("1099-contractor-employee-type-card");
 const card3 = document.getElementById("intern-employee-type-card");
 const card4 = document.getElementById("freelancer-agency-employee-type-card");
+const employeeTypeCards = [card1, card2, card3, card4];
+
+let selectedEmployeeTypeCard = null;
+
+function selectEmployeeTypeCard(card) {
+  if (selectedEmployeeTypeCard) {
+    selectedEmployeeTypeCard.classList.remove('card-selected');
+  }
+  selectedEmployeeTypeCard.classList.add('card-selected');
+  selectedEmployeeTypeCard = card;
+}
+
+employeeTypeCards.forEach(card => {
+  card.addEventListener('click', function () {
+    selectEmployeeTypeCard(card);
+  });
+  card.addEventListener('mouseover', function () {
+    card.classList.add('hover');
+  });
+  card.addEventListener('mouseout', function () {
+    card.classList.remove('hover');
+  });
+});
+
+document.addEventListener('click', function (event) {
+  const isClickInsideEmployeeTypeCard = Array.from(employeeTypeCards).some(card => card.contains(event.target));
+  if (!isClickInsideEmployeeTypeCard && selectedEmployeeTypeCard) {
+    // Prevents deselection if clicking outside of any card
+    event.stopPropagation();
+  }
+});
 
 // Function to update the text field
 function updateEmployeeTypeInput(value) {
@@ -269,6 +331,37 @@ const hiddenEmployeeWorkScheduleInput = document.getElementById(
 );
 const fullTimeCard = document.getElementById("employee-full-time-card");
 const partTimeCard = document.getElementById("employee-part-time-card");
+const workScheduleCards = [fullTimeCard, partTimeCard];
+
+let selectedWorkScheduleCard = null;
+
+function selectWorkScheduleCard(card) {
+  if (selectedWorkScheduleCard) {
+    selectedWorkScheduleCard.classList.remove('card-selected');
+  }
+  selectedWorkScheduleCard.classList.add('card-selected');
+  selectedWorkScheduleCard = card;
+}
+
+workScheduleCards.forEach(card => {
+  card.addEventListener('click', function () {
+    selectWorkLocationCard(card);
+  });
+  card.addEventListener('mouseover', function () {
+    card.classList.add('hover');
+  });
+  card.addEventListener('mouseout', function () {
+    card.classList.remove('hover');
+  });
+});
+
+document.addEventListener('click', function (event) {
+  const isClickInsideWorkScheduleCard = Array.from(workScheduleCards).some(card => card.contains(event.target));
+  if (!isClickInsideWorkScheduleCard && selectedWorkScheduleCard) {
+    // Prevents deselection if clicking outside of any card
+    event.stopPropagation();
+  }
+});
 
 // Function to update the text field
 function updateEmployeeWorkScheduleInput(value) {
@@ -294,6 +387,37 @@ const salaryPayCard = document.getElementById("salary-pay-card");
 const hourlyPayCard = document.getElementById("hourly-pay-card");
 const projectBasedPayCard = document.getElementById("project-based-pay-card");
 const commissionPayCard = document.getElementById("commission-pay-card");
+const employeePayStructureCards = [salaryPayCard, hourlyPayCard, projectBasedPayCard, commissionPayCard];
+
+let selectedEmployeePayStructureCard = null;
+
+function selectEmployeePayStructureCard(card) {
+  if (selectedEmployeePayStructureCard) {
+    selectedEmployeePayStructureCard.classList.remove('card-selected');
+  }
+  selectedEmployeePayStructureCard.classList.add('card-selected');
+  selectedEmployeePayStructureCard = card;
+}
+
+employeePayStructureCards.forEach(card => {
+  card.addEventListener('click', function () {
+    selectEmployeePayStructureCard(card);
+  });
+  card.addEventListener('mouseover', function () {
+    card.classList.add('hover');
+  });
+  card.addEventListener('mouseout', function () {
+    card.classList.remove('hover');
+  });
+});
+
+document.addEventListener('click', function (event) {
+  const isClickInsideEmployeePayStructureCard = Array.from(employeePayStructureCards).some(card => card.contains(event.target));
+  if (!isClickInsideEmployeePayStructureCard && selectedEmployeePayStructureCard) {
+    // Prevents deselection if clicking outside of any card
+    event.stopPropagation();
+  }
+});
 
 // Function to update the text field
 function updateEmployeePayStructureInput(value) {
@@ -359,6 +483,37 @@ const monthlyPayCard = document.getElementById("monthly-pay-card");
 const projectBasedFrequencyPayCard = document.getElementById(
   "project-based-frequency-pay-card"
 );
+const employeePayFrequencyCards = [weeklyPayCard, biWeeklyPayCard, monthlyPayCard, projectBasedFrequencyPayCard];
+
+let selectedEmployeePayFrequencyCard = null;
+
+function selectEmployeePayFrequencyCard(card) {
+  if (selectedEmployeePayFrequencyCard) {
+    selectedEmployeePayFrequencyCard.classList.remove('card-selected');
+  }
+  selectedEmployeePayFrequencyCard.classList.add('card-selected');
+  selectedEmployeePayFrequencyCard = card;
+}
+
+employeePayFrequencyCards.forEach(card => {
+  card.addEventListener('click', function () {
+    selectEmployeePayFrequencyCard(card);
+  });
+  card.addEventListener('mouseover', function () {
+    card.classList.add('hover');
+  });
+  card.addEventListener('mouseout', function () {
+    card.classList.remove('hover');
+  });
+});
+
+document.addEventListener('click', function (event) {
+  const isClickInsideEmployeePayFrequencyCard = Array.from(employeePayFrequencyCards).some(card => card.contains(event.target));
+  if (!isClickInsideEmployeePayFrequencyCard && selectedEmployeePayFrequencyCard) {
+    // Prevents deselection if clicking outside of any card
+    event.stopPropagation();
+  }
+});
 
 // Function to update the text field
 function updateEmployeePayFrequencyInput(value) {
