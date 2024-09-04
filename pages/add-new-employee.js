@@ -345,7 +345,7 @@ function selectWorkScheduleCard(card) {
 
 workScheduleCards.forEach(card => {
   card.addEventListener('click', function () {
-    selectWorkLocationCard(card);
+    selectWorkScheduleCard(card);
   });
   card.addEventListener('mouseover', function () {
     card.classList.add('hover');
