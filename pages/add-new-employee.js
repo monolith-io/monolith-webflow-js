@@ -175,43 +175,6 @@ inputField.addEventListener("input", function (event) {
 });
 // END - Validation for last 4 ssn
 
-{
-  /* <script>
-document.addEventListener("DOMContentLoaded", function() {
-  const cards = document.querySelectorAll('.work-link-block-wrapper');
-  let selectedCard = null;
-
-  function selectCard(card) {
-    if (selectedCard) {
-      selectedCard.classList.remove('card-selected');
-    }
-    card.classList.add('card-selected');
-    selectedCard = card;
-  }
-
-  cards.forEach(card => {
-    card.addEventListener('click', function() {
-      selectCard(card);
-    });
-    card.addEventListener('mouseover', function() {
-      card.classList.add('hover');
-    });
-    card.addEventListener('mouseout', function() {
-      card.classList.remove('hover');
-    });
-  });
-
-  document.addEventListener('click', function(event) {
-    const isClickInsideCard = Array.from(cards).some(card => card.contains(event.target));
-    if (!isClickInsideCard && selectedCard) {
-      // Prevents deselection if clicking outside of any card
-      event.stopPropagation();
-    }
-  });
-});
-</script> */
-}
-
 // BEGIN - Script to get employe work location and enable next button
 // Get references to the text field and the cards
 const hiddenWorkLocationInput = document.getElementById(
